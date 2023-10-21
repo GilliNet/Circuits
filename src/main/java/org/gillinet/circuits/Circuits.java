@@ -26,6 +26,8 @@ import org.gillinet.circuits.blocks.CBlocks;
 import org.gillinet.circuits.items.CItems;
 import org.slf4j.Logger;
 
+// Dev seed: -7303377354933438288
+
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(Circuits.MODID)
 public class Circuits
@@ -45,6 +47,7 @@ public class Circuits
             .displayItems((parameters, output) -> {
                 output.accept(CItems.EXAMPLE_ITEM.get()); // Add the example item to the tab. For your own tabs, this method is preferred over the event
                 output.accept(CItems.EXAMPLE_BLOCK_ITEM.get());
+                output.accept(CItems.AND_GATE_ITEM.get());
             }).build());
 
     public Circuits()

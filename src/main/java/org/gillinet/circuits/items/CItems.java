@@ -16,6 +16,7 @@ public class CItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Circuits.MODID);
     // Creates a new BlockItem with the id "examplemod:example_block", combining the namespace and path
     public static final RegistryObject<Item> EXAMPLE_BLOCK_ITEM = ITEMS.register("example_block", () -> new BlockItem(CBlocks.EXAMPLE_BLOCK.get(), new Item.Properties()));
+    public static final RegistryObject<Item> AND_GATE_ITEM = ITEMS.register("and_gate_item", () -> new BlockItem(CBlocks.AND_GATE.get(), new Item.Properties()));
 
     // Creates a new food item with the id "examplemod:example_id", nutrition 1 and saturation 2
     public static final RegistryObject<Item> EXAMPLE_ITEM = ITEMS.register("example_item", () -> new Item(new Item.Properties().food(new FoodProperties.Builder()
