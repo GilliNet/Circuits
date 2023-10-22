@@ -73,8 +73,9 @@ public class Circuits
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
-        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS)
-            event.accept(CItems.EXAMPLE_BLOCK_ITEM);
+        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
+            
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call

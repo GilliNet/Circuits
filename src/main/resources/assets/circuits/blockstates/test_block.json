@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "circuits:block/test_block"
+    }
+  }
+}

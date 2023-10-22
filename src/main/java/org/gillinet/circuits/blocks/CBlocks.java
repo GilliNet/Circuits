@@ -2,7 +2,6 @@ package org.gillinet.circuits.blocks;
 import org.gillinet.circuits.Circuits;
 
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.PoweredBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -18,13 +17,13 @@ public class CBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Circuits.MODID);
 
     // Creates a new Block with the id "examplemod:example_block", combining the namespace and path
-    public static final RegistryObject<Block> AND_GATE = BLOCKS.register("and_gate", () -> new ANDGate(BlockBehaviour.Properties.of().instabreak().sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
-    public static final RegistryObject<Block> OR_GATE = BLOCKS.register("or_gate", () -> new ORGate(BlockBehaviour.Properties.of().instabreak().sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
-    public static final RegistryObject<Block> XOR_GATE = BLOCKS.register("xor_gate", () -> new XORGate(BlockBehaviour.Properties.of().instabreak().sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
-    public static final RegistryObject<Block> INVERTER_GATE = BLOCKS.register("inverter_gate", () -> new InverterGate(BlockBehaviour.Properties.of().instabreak().sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<Block> AND_GATE_BLOCK = BLOCKS.register("and_gate_block", () -> new ANDGate(BlockBehaviour.Properties.of().instabreak().sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<Block> OR_GATE_BLOCK = BLOCKS.register("or_gate_block", () -> new ORGate(BlockBehaviour.Properties.of().instabreak().sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<Block> XOR_GATE_BLOCK = BLOCKS.register("xor_gate_block", () -> new XORGate(BlockBehaviour.Properties.of().instabreak().sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<Block> INVERTER_GATE_BLOCK = BLOCKS.register("inverter_gate_block", () -> new InverterGate(BlockBehaviour.Properties.of().instabreak().sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
     
     public static final RegistryObject<Block> EXAMPLE_BLOCK = BLOCKS.register("example_block", () -> new PoweredBlock(BlockBehaviour.Properties.of().mapColor(MapColor.STONE)));
-    public static final RegistryObject<Block> TEST_BLOCK = BLOCKS.register("test_block", () -> new TestBlock(BlockBehaviour.Properties.copy(Blocks.REPEATER)));
+    public static final RegistryObject<Block> TEST_BLOCK = BLOCKS.register("test_block", () -> new TestBlock(BlockBehaviour.Properties.of().mapColor(MapColor.STONE)));
 
 
     public static void register(IEventBus bus) {

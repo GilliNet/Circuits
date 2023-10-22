@@ -1,0 +1,9 @@
+{
+    "block.circuits.and_gate_block": "AND Gate",
+    "block.circuits.or_gate_block": "OR Gate",
+    "block.circuits.xor_gate_block": "XOR Gate",
+    "block.circuits.inverter_gate_block": "Inverter",
+    "block.circuits.test_block": "Test Block",
+
+    "creativetab.circuits_tab": "Circuits"
+}
