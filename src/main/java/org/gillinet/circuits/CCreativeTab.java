@@ -21,6 +21,8 @@ public class CCreativeTab {
                 output.accept(CItems.EXAMPLE_BLOCK_ITEM.get());
                 output.accept(CItems.AND_GATE_ITEM.get());
                 output.accept(CItems.OR_GATE_ITEM.get());
+                output.accept(CItems.XOR_GATE_ITEM.get());
+                output.accept(CItems.INVERTER_GATE_ITEM.get());
             }).build());
 
     public static void register(IEventBus bus) {

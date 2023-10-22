@@ -17,6 +17,8 @@ public class CItems {
     public static final RegistryObject<Item> EXAMPLE_BLOCK_ITEM = ITEMS.register("example_block", () -> new BlockItem(CBlocks.EXAMPLE_BLOCK.get(), new Item.Properties()));
     public static final RegistryObject<Item> AND_GATE_ITEM = ITEMS.register("and_gate_item", () -> new BlockItem(CBlocks.AND_GATE.get(), new Item.Properties()));
     public static final RegistryObject<Item> OR_GATE_ITEM = ITEMS.register("or_gate_item", () -> new BlockItem(CBlocks.OR_GATE.get(), new Item.Properties()));
+    public static final RegistryObject<Item> XOR_GATE_ITEM = ITEMS.register("xor_gate_item", () -> new BlockItem(CBlocks.XOR_GATE.get(), new Item.Properties()));
+    public static final RegistryObject<Item> INVERTER_GATE_ITEM = ITEMS.register("inverter_gate_item", () -> new BlockItem(CBlocks.INVERTER_GATE.get(), new Item.Properties()));
 
     public static void register(IEventBus bus) {
         ITEMS.register(bus);
