@@ -9,13 +9,16 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.SignalGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DiodeBlock;
+import net.minecraft.world.level.block.RedStoneWireBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.Blocks;
 
 public class InverterGate extends DiodeBlock {
 
     protected InverterGate(Properties p_52499_) {
         super(p_52499_);
+        this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(POWERED, Boolean.valueOf(false));
     }
 
     @Override
@@ -30,20 +33,22 @@ public class InverterGate extends DiodeBlock {
 
     @Override
     public boolean canConnectRedstone(BlockState state, BlockGetter world, BlockPos pos, @Nullable Direction side) {
-        return side == state.getValue(FACING) || side == state.getValue(FACING).getClockWise().getClockWise();
+        return side == state.getValue(FACING)
+                || side == state.getValue(FACING).getCounterClockWise().getCounterClockWise();
     }
 
     @Override
-    protected int getInputSignal(Level pLevel, BlockPos pPos, BlockState pState) {
-        Direction facing = pState.getValue(FACING);
+    protected int getInputSignal(Level p_52544_, BlockPos p_52545_, BlockState p_52546_) {
+        Direction direction = p_52546_.getValue(FACING);
+        BlockPos blockpos = p_52545_.relative(direction);
 
-        SignalGetter sGet = pLevel;
-        int input = sGet.getControlInputSignal(pPos.relative(facing.getClockWise().getClockWise()), facing,
-                dynamicShape);
-
-        if (input > 0) {
+        BlockState blockstate = p_52544_.getBlockState(blockpos);
+        int power = blockstate.getValue(RedStoneWireBlock.POWER);
+        
+        if (power > 0) {
             return 0;
+        } else {
+            return 15;
         }
-        return 15;
     }
 }
