@@ -8,9 +8,8 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraftforge.common.extensions.IForgeBlock;
 
-public class TestBlock extends Block implements IForgeBlock {
+public class TestBlock extends Block {
 
     public TestBlock(Properties p_55206_) {
         super(p_55206_);
