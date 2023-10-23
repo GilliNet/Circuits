@@ -12,8 +12,8 @@ import net.minecraftforge.registries.RegistryObject;
 public class CCreativeTab {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Circuits.MODID);
 
-    // Creates a creative tab with the id "examplemod:example_tab" for the example item, that is placed after the combat tab
-    public static final RegistryObject<CreativeModeTab> EXAMPLE_TAB = CREATIVE_MODE_TABS.register("circuits_tab", () -> CreativeModeTab.builder()
+    // Creates a creative tab with the id "circuits:circuits_tab" for the circuits mod, that is placed after the combat tab
+    public static final RegistryObject<CreativeModeTab> CIRCUITS_TAB = CREATIVE_MODE_TABS.register("circuits_tab", () -> CreativeModeTab.builder()
             .withTabsBefore(CreativeModeTabs.COMBAT)
             .icon(() -> CItems.AND_GATE_ITEM.get().getDefaultInstance())
             .displayItems((parameters, output) -> {
@@ -26,6 +26,7 @@ public class CCreativeTab {
                 output.accept(CItems.NOR_LATCH_ITEM.get());
             }).build());
 
+    // Function to register the creative tab
     public static void register(IEventBus bus) {
         CREATIVE_MODE_TABS.register(bus);
     }

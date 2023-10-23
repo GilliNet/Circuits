@@ -30,12 +30,14 @@ public class ORGate extends DiodeBlock {
         p_51887_.add(FACING, POWERED);
     }
 
+    // Allows redstone to connect to the north, east, and west facings
     @Override
     public boolean canConnectRedstone(BlockState state, BlockGetter world, BlockPos pos, @Nullable Direction side) {
         return side == state.getValue(FACING) || side == state.getValue(FACING).getClockWise()
                 || side == state.getValue(FACING).getCounterClockWise();
     }
 
+    // Compares the east and west facings redstone power level and then outputs a signal according to an OR gate
     @Override
 	protected int getInputSignal(Level pLevel, BlockPos pPos, BlockState pState) {
 		Direction facing = pState.getValue(FACING);

@@ -70,11 +70,7 @@ public class NORLatch extends DiodeBlock {
         return 0;
     }
 
-    @Override
-    public boolean isSignalSource(BlockState state) {
-        return true;
-    }
-
+    // Sets the redstone delay to 0
     @Override
     protected int getDelay(BlockState p_52584_) {
         return 0;

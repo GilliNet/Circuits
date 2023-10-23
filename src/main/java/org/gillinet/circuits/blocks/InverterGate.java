@@ -15,6 +15,8 @@ import net.minecraft.world.level.block.state.StateDefinition;
 
 public class InverterGate extends DiodeBlock {
 
+    public boolean isPowered = false;
+
     protected InverterGate(Properties p_52499_) {
         super(p_52499_);
         this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(POWERED, Boolean.valueOf(false));

@@ -39,7 +39,7 @@ public class ANDGate extends DiodeBlock {
                 || side == state.getValue(FACING).getCounterClockWise();
     }
 
-    // Compares the east and west redstone inputs
+    // Compares the east and west redstone inputs and returns a signal according to an AND gate
     @Override
 	protected int getInputSignal(Level pLevel, BlockPos pPos, BlockState pState) {
 		Direction facing = pState.getValue(FACING);
@@ -54,7 +54,8 @@ public class ANDGate extends DiodeBlock {
         // Comparison
         if (input1 > 0 && input2 > 0) {
             return 15;
+        } else {
+            return 0;
         }
-		return 0;
 	}
 }

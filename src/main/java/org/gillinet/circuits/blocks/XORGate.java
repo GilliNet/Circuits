@@ -17,22 +17,26 @@ public class XORGate extends DiodeBlock {
         super(p_52499_);
     }
 
+    // Makes the redstone delay 0
     @Override
     protected int getDelay(BlockState p_52584_) {
         return 0;
     }
     
+    // Creates the block state for the the FACING and POWERED values
     @Override
     public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> p_51887_) {
         p_51887_.add(FACING, POWERED);
     }
 
+    // Allows redstone connections to the north, east, and west facings
     @Override
     public boolean canConnectRedstone(BlockState state, BlockGetter world, BlockPos pos, @Nullable Direction side) {
         return side == state.getValue(FACING) || side == state.getValue(FACING).getClockWise()
                 || side == state.getValue(FACING).getCounterClockWise();
     }
 
+    // Compares the east and west facing redstone power signals and returns a signal according to an XOR gate
     @Override
 	protected int getInputSignal(Level pLevel, BlockPos pPos, BlockState pState) {
 		Direction facing = pState.getValue(FACING);
