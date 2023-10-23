@@ -21,7 +21,8 @@ public class CBlocks {
     public static final RegistryObject<Block> OR_GATE_BLOCK = BLOCKS.register("or_gate_block", () -> new ORGate(BlockBehaviour.Properties.of().instabreak().sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
     public static final RegistryObject<Block> XOR_GATE_BLOCK = BLOCKS.register("xor_gate_block", () -> new XORGate(BlockBehaviour.Properties.of().instabreak().sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
     public static final RegistryObject<Block> INVERTER_GATE_BLOCK = BLOCKS.register("inverter_gate_block", () -> new InverterGate(BlockBehaviour.Properties.of().instabreak().sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
-    
+    public static final RegistryObject<Block> NOR_LATCH_BLOCK = BLOCKS.register("nor_latch_block", () -> new NORLatch(BlockBehaviour.Properties.of().instabreak().sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
+
     public static final RegistryObject<Block> EXAMPLE_BLOCK = BLOCKS.register("example_block", () -> new PoweredBlock(BlockBehaviour.Properties.of().mapColor(MapColor.STONE)));
     public static final RegistryObject<Block> TEST_BLOCK = BLOCKS.register("test_block", () -> new TestBlock(BlockBehaviour.Properties.of().mapColor(MapColor.STONE)));
 

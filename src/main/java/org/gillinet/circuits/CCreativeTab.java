@@ -23,6 +23,7 @@ public class CCreativeTab {
                 output.accept(CItems.XOR_GATE_ITEM.get());
                 output.accept(CItems.INVERTER_GATE_ITEM.get());
                 output.accept(CItems.TEST_BLOCK_ITEM.get());
+                output.accept(CItems.NOR_LATCH_ITEM.get());
             }).build());
 
     public static void register(IEventBus bus) {
