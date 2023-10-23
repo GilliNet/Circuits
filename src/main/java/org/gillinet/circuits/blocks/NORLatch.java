@@ -45,6 +45,7 @@ public class NORLatch extends DiodeBlock {
     }
 
     // Function pulled from tristankechlo's Additional Redstone mod
+    // > https://github.com/tristankechlo/AdditionalRedstone
     @Override
     protected void checkTickOnNeighbor(Level worldIn, BlockPos pos, BlockState state) {
         if (!worldIn.getBlockTicks().willTickThisTick(pos, this)) {
@@ -57,7 +58,6 @@ public class NORLatch extends DiodeBlock {
     }
 
     // Returns a signal to the powered facing 
-    // NOTE: Currently causing tick issues when pulsed at a high frequency
     @Override
     public int getSignal(BlockState state, BlockGetter blockAccess, BlockPos pos, Direction side) {
         return side == this.poweredDirection ? 15 : 0;
