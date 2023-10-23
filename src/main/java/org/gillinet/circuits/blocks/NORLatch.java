@@ -11,6 +11,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DiodeBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.ticks.TickPriority;
 
 public class NORLatch extends DiodeBlock {
 
@@ -41,6 +42,18 @@ public class NORLatch extends DiodeBlock {
         return side == state.getValue(FACING) || side == state.getValue(FACING).getClockWise()
                 || side == state.getValue(FACING).getCounterClockWise()
                 || side == state.getValue(FACING).getClockWise().getClockWise();
+    }
+
+    // Function pulled from tristankechlo's Additional Redstone mod
+    @Override
+    protected void checkTickOnNeighbor(Level worldIn, BlockPos pos, BlockState state) {
+        if (!worldIn.getBlockTicks().willTickThisTick(pos, this)) {
+            TickPriority tickpriority = TickPriority.HIGH;
+            if (this.shouldPrioritize(worldIn, pos, state)) {
+                tickpriority = TickPriority.EXTREMELY_HIGH;
+            }
+            worldIn.scheduleTick(pos, this, this.getDelay(state), tickpriority);
+        }
     }
 
     // Returns a signal to the powered facing 
