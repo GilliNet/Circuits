@@ -18,11 +18,13 @@ public class ORGate extends DiodeBlock {
         super(p_52499_);
     }
 
+    // Sets the signal delay to 0
     @Override
     protected int getDelay(BlockState p_52584_) {
         return 0;
     }
     
+    // Creates the block state for the the FACING and POWERED values
     @Override
     public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> p_51887_) {
         p_51887_.add(FACING, POWERED);

@@ -11,14 +11,9 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DiodeBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
 
 public class NORLatch extends DiodeBlock {
 
-    public static final BooleanProperty INPUT_A = BooleanProperty.create("input_a");
-    public static final BooleanProperty INPUT_B = BooleanProperty.create("input_b");
-    public static final BooleanProperty OUTPUT_A = BooleanProperty.create("output_a");
-    public static final BooleanProperty OUTPUT_B = BooleanProperty.create("output_b");
     public static final Direction IN_A_DIRECTION = Direction.WEST;
     public static final Direction IN_B_DIRECTION = Direction.EAST;
     public static final Direction OUT_A_DIRECTION = Direction.NORTH;
@@ -29,20 +24,18 @@ public class NORLatch extends DiodeBlock {
         super(p_52499_);
         this.registerDefaultState(
                 this.getStateDefinition().any()
-                        .setValue(INPUT_A, false)
-                        .setValue(INPUT_B, false)
-                        .setValue(OUTPUT_A, true)
-                        .setValue(OUTPUT_B, false)
                         .setValue(FACING, Direction.NORTH)
                         .setValue(POWERED, Boolean.valueOf(false)));
         this.poweredDirection = this.getStateDefinition().any().getValue(FACING);
     }
 
+    // Creates the block state for the the FACING and POWERED values
     @Override
     public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> p_51887_) {
-        p_51887_.add(FACING, POWERED, INPUT_A, INPUT_B, OUTPUT_A, OUTPUT_B);
+        p_51887_.add(FACING, POWERED);
     }
 
+    // Allows redstone to connect on all facings
     @Override
     public boolean canConnectRedstone(BlockState state, BlockGetter world, BlockPos pos, @Nullable Direction side) {
         return side == state.getValue(FACING) || side == state.getValue(FACING).getClockWise()
@@ -50,11 +43,13 @@ public class NORLatch extends DiodeBlock {
                 || side == state.getValue(FACING).getClockWise().getClockWise();
     }
 
+    // Returns a signal to the powered facing 
     @Override
     public int getSignal(BlockState state, BlockGetter blockAccess, BlockPos pos, Direction side) {
         return side == this.poweredDirection ? 15 : 0;
     }
 
+    // Sets the powered facing to north if the east facing is pulsed; south if the west facing is pulsed
     @Override
     protected int getInputSignal(Level pLevel, BlockPos pPos, BlockState pState) {
         Direction facing = pState.getValue(FACING);

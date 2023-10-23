@@ -20,22 +20,26 @@ public class InverterGate extends DiodeBlock {
         this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(POWERED, Boolean.valueOf(false));
     }
 
+    // Sets the signal delay to 0
     @Override
     protected int getDelay(BlockState p_52584_) {
         return 0;
     }
 
+    // Creates the block state for the the FACING and POWERED values
     @Override
     public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> p_51887_) {
         p_51887_.add(FACING, POWERED);
     }
 
+    // Allows redstone to connect on the north and south facings
     @Override
     public boolean canConnectRedstone(BlockState state, BlockGetter world, BlockPos pos, @Nullable Direction side) {
         return side == state.getValue(FACING)
                 || side == state.getValue(FACING).getCounterClockWise().getCounterClockWise();
     }
 
+    // Gets the redstone input for the south facing and returns the opposite signal
     @Override
     protected int getInputSignal(Level p_52544_, BlockPos p_52545_, BlockState p_52546_) {
         Direction direction = p_52546_.getValue(FACING);
